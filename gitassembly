@@ -1,6 +1,5 @@
 stage multiplayer-fabric-base remotes/v-sekai-fire/master
 
-merge multiplayer-fabric-base remotes/v-sekai-fire/feat/fork-scaffolding
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/engine-misc
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/tapered-capsule-shape
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/crypto-extensions
