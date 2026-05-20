@@ -1,3 +1,2 @@
 stage multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/d3d12-download-retry
-merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-http3
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/assets
