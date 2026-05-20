@@ -6,8 +6,6 @@ if Enum.any?(argv, &(&1 in ["-h", "--help"])) do
   IO.puts("""
   Usage: elixir #{__ENV__.file} [--help|-h] [--dry-run|--no-push|-n]
 
-  Compiles all branches in gitassembly and pushes to V-Sekai-fire/multiplayer-fabric-godot.
-
   --help, -h       Display help
   --dry-run, -n    Do not push.
   """)
