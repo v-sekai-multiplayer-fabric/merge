@@ -39,7 +39,7 @@ add_remote = fn name, url ->
 end
 
 IO.puts("Checkout remotes")
-add_remote.("v-sekai-fire", "https://github.com/V-Sekai-fire/multiplayer-fabric-godot.git")
+add_remote.("v-sekai-fire", "https://github.com/v-sekai-multiplayer-fabric/multiplayer-fabric-godot.git")
 add_remote.("opentelemetry-godot", "https://github.com/V-Sekai-fire/opentelemetry-godot.git")
 
 current_branch = String.trim(run!.("git", ["rev-parse", "--abbrev-ref", "HEAD"]))
