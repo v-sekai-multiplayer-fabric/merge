@@ -4,7 +4,6 @@ merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/misc-clean
 merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/lint-cleanup
 merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/ci-fixes
 merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/crypto-extensions
-merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/fix-picosocks-cmsghdr-mingw
 merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/module-http3
 merge multiplayer-fabric-base remotes/v-sekai-multiplayer-fabric/feat/module-keychain
 merge multiplayer-fabric-base remotes/opentelemetry-godot/feat/open-telemetry-base
