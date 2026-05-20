@@ -3,5 +3,4 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lint-cleanup
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/ci-fixes
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/d3d12-download-retry
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-http3
-merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-keychain
-merge multiplayer-fabric remotes/opentelemetry-godot/feat/open-telemetry-base
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/assets
