@@ -7,8 +7,10 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/tapered-capsule
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lasso
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-http3
 
-# Engine core patches
-merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/engine-patches
+# Engine core
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lint-config
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/engine-fabric-core
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/call-gui-input
 
 # Assets: predictive BVH + Lean proofs
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/assets
