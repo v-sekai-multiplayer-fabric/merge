@@ -21,4 +21,6 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-open-tel
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-keychain
 
 # Audio
-merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/spatial-audio
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/spatial-audio-server
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-speech
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-resonance-audio
