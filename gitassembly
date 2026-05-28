@@ -26,3 +26,4 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-keychain
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/spatial-audio-server
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-speech
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-resonance-audio
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/sandbox
