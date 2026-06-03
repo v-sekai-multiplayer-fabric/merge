@@ -4,6 +4,7 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lint-cleanup
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/ci-fixes
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/crypto-extensions
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/tapered-capsule-shape
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/joint-limitation
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lasso
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-http3
 
