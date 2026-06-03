@@ -74,8 +74,11 @@ tag_name =
 if not dry_run do
   run!.("git", ["checkout", merge_branch, "-f"])
   run!.("git", ["commit", "--allow-empty", "-m", "Merge branch '#{merge_branch}'"])
-  run!.("git", ["push", merge_remote, merge_branch, "-f"])
 
+  # Tag the assembled state and push only the tag — the multiplayer-fabric
+  # branch itself stays local. The tag is the durable, immutable artifact
+  # consumers depend on; pushing the moving branch overwrites prior
+  # assemblies and steamrolls anyone working off the previous tip.
   run!.("git", ["tag", "-a", tag_name, "-m", "#{merge_branch} #{tag_name}"])
   run!.("git", ["push", merge_remote, tag_name])
 
