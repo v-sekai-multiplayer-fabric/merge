@@ -21,9 +21,15 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-multipla
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-multiplayer-fabric-asset
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-open-telemetry
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-keychain
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-cassie
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-xr-grid
 
 # Audio
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/spatial-audio-server
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-speech
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-resonance-audio
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/sandbox
+
+# Media (animation + decoders)
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lottie
+merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/native-media
