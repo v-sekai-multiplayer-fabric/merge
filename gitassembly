@@ -32,5 +32,5 @@ merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/module-resonanc
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/sandbox
 
 # Media (animation + decoders)
-merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/lottie
+# feat/lottie archived to archived/lottie (ThorVG 1.0.3 loader fix landed there); dropped from the assembly.
 merge multiplayer-fabric remotes/v-sekai-multiplayer-fabric/feat/native-media
