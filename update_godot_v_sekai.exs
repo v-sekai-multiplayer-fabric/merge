@@ -59,38 +59,56 @@ has_changes =
     _ -> true
   end
 
-run!.("git", ["stash"])
-
-run!.("git", ["checkout", original_branch, "--force"])
-System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
-run!.("python3", [assembler_path, "-av", "--recreate", "--config", assembler_config])
-
-tag_name =
-  "v" <>
-    (DateTime.utc_now()
-     |> Calendar.strftime("%Y.%m.%d.%H%M")) <>
-    "-#{merge_branch}"
-
-if not dry_run do
-  run!.("git", ["checkout", merge_branch, "-f"])
-  run!.("git", ["commit", "--allow-empty", "-m", "Merge branch '#{merge_branch}'"])
-
-  # Tag the assembled state and push only the tag — the multiplayer-fabric
-  # branch itself stays local. The tag is the durable, immutable artifact
-  # consumers depend on; pushing the moving branch overwrites prior
-  # assemblies and steamrolls anyone working off the previous tip.
-  run!.("git", ["tag", "-a", tag_name, "-m", "#{merge_branch} #{tag_name}"])
-  run!.("git", ["push", merge_remote, tag_name])
-
-  run!.("git", ["checkout", original_branch, "--force"])
+# Always return to the base branch and drop the local assembly branch — on
+# success, on a dry run, AND on failure. Order matters: you cannot delete the
+# branch you are on, so check out `original_branch` FIRST, then delete
+# `merge_branch`. Both steps are non-fatal (System.cmd, not run!) so a half-built
+# assembly still leaves the checkout clean and back on `original_branch` with no
+# stray `merge_branch` left behind — that leftover branch was the root of the
+# branch-state problems.
+cleanup = fn ->
+  System.cmd("git", ["checkout", original_branch, "--force"], stderr_to_stdout: true)
   System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
-else
-  run!.("git", ["checkout", original_branch, "--force"])
-  IO.puts("#{merge_branch} was created and is ready to push.")
-  IO.puts("Would tag as #{tag_name}.")
 end
 
-IO.puts("ALL DONE. ----------------------------")
+run!.("git", ["stash"])
+
+try do
+  run!.("git", ["checkout", original_branch, "--force"])
+  System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
+  run!.("python3", [assembler_path, "-av", "--recreate", "--config", assembler_config])
+
+  tag_name =
+    "v" <>
+      (DateTime.utc_now()
+       |> Calendar.strftime("%Y.%m.%d.%H%M")) <>
+      "-#{merge_branch}"
+
+  if not dry_run do
+    run!.("git", ["checkout", merge_branch, "-f"])
+    run!.("git", ["commit", "--allow-empty", "-m", "Merge branch '#{merge_branch}'"])
+
+    # Tag the assembled state and push only the tag — the moving branch stays
+    # local. The tag is the durable, immutable artifact consumers depend on;
+    # force-pushing the branch overwrites prior assemblies.
+    run!.("git", ["tag", "-a", tag_name, "-m", "#{merge_branch} #{tag_name}"])
+    run!.("git", ["push", merge_remote, tag_name])
+    IO.puts("Pushed tag #{tag_name}.")
+  else
+    IO.puts("Dry run: would tag as #{tag_name} (no push).")
+  end
+rescue
+  e ->
+    IO.puts("Merge failed: #{Exception.message(e)}")
+    cleanup.()
+    System.halt(1)
+end
+
+# Success / dry-run: clean up unconditionally so every run ends back on the base
+# branch with no `merge_branch` lingering.
+cleanup.()
+
+IO.puts("ALL DONE. Cleaned up #{merge_branch}; back on #{original_branch}. ------")
 
 if has_changes do
   IO.puts("""
