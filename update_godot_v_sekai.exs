@@ -64,8 +64,7 @@ has_changes =
 # branch you are on, so check out `original_branch` FIRST, then delete
 # `merge_branch`. Both steps are non-fatal (System.cmd, not run!) so a half-built
 # assembly still leaves the checkout clean and back on `original_branch` with no
-# stray `merge_branch` left behind — that leftover branch was the root of the
-# branch-state problems.
+# stray `merge_branch` lingering, the branch-state hazard this guards against.
 cleanup = fn ->
   System.cmd("git", ["checkout", original_branch, "--force"], stderr_to_stdout: true)
   System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
